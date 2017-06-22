@@ -2,7 +2,7 @@ if (typeof Vue != 'undefined') {
     Vue.component('json-tree', {
         template: `<div>
                     {
-                    <div style="margin-left: 25px" v-for="(value, key, index) in data">
+                    <div style="margin-left: 25px" v-for="(value, key, index) in filteredData">
                       <div v-if="typeof value === 'object'">
                         <span class="key">{{key}}: </span>      
                         <i v-if="showObj[index]" @click="toggle(index)" class="fa fa-minus-square-o"></i>
@@ -22,7 +22,11 @@ if (typeof Vue != 'undefined') {
                     }
                   </div>`,
         props: {
-            data: [Object, Array]
+            data: [Object, Array],
+            filterKey: {
+                type: String,
+                default: ""
+            }
         },
         data() {
             const showObj = [];
@@ -33,6 +37,23 @@ if (typeof Vue != 'undefined') {
 
             return {
                 showObj: showObj
+            }
+        },
+        computed: {
+            filteredData() {
+                const filterKey = this.filterKey && this.filterKey.toLowerCase();
+                if (filterKey) {
+                    let filteredData = {};
+                    const keys = Object.keys(this.data);
+                    keys.forEach(key => {
+                        if (key.toLowerCase().includes(filterKey) || JSON.stringify(this.data[key]).includes(filterKey)) {
+                            filteredData[key] = this.data[key];
+                        }
+                    });
+                    return filteredData;
+                } else {
+                    return this.data;
+                }
             }
         },
         methods: {
