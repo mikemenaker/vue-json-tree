@@ -13,10 +13,13 @@ https://jsfiddle.net/mikemenaker/wzfyz5hr/
 ## Installation:
 
 ``` html
-<script src="https://cdn.rawgit.com/mikemenaker/vue-json-tree/1.0.0/src/v-json-tree.js"></script>	
+<script src="https://cdn.rawgit.com/mikemenaker/vue-json-tree/1.0.1/src/v-json-tree.js"></script>	
 ```
 
 ## Tab Props:
  - data
 	 - Object/Array   
-   - Data to format into tree   
+   - Data to format into tree 
+ - filterKey
+	 - String   
+   - String to filter data   
