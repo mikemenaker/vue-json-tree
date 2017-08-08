@@ -10,20 +10,16 @@ Vue.js 2.0 JSON tree viewer
 
 https://jsfiddle.net/mikemenaker/wzfyz5hr/
 
-## Installation:
-
-``` html
-<script src="https://cdn.rawgit.com/mikemenaker/vue-json-tree/1.0.1/src/v-json-tree.js"></script>
-```
-
 ## Installation
 ### With npm:
 ```bash
-npm i <v-json-tree> --save
+npm i v-json-tree --save
 ```
 
 ### With a CDN:
 ```html
+<!-- In <head> -->
+<meta rel="stylesheet" href="https://unpkg.com/v-json-tree/dist/v-json-tree.css">
 <!-- In <body>, after Vue import -->
 <script src="https://unpkg.com/v-json-tree/dist/v-json-tree.js"></script>
 ```
@@ -33,12 +29,13 @@ npm i <v-json-tree> --save
 In your index file
 ```js
 import JsonTree from 'v-json-tree'
+Vue.use(JsonTree)
 ```
 
 ### With a CDN
 ```html
 <script>
-    Vue.use(v-json-tree)
+    Vue.use(JsonTree)
 
     new Vue({
         // ...
