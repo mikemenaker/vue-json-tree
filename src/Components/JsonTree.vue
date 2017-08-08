@@ -1,26 +1,29 @@
-if (typeof Vue != 'undefined') {
-    Vue.component('json-tree', {
-        template: `<div>
-                    {
-                    <div style="margin-left: 25px" v-for="(value, key, index) in filteredData">
-                      <div v-if="typeof value === 'object'">
-                        <span class="key">{{key}}: </span>      
-                        <i v-if="showObj[index]" @click="toggle(index)" class="fa fa-minus-square-o"></i>
-                        <i v-else @click="toggle(index)" class="fa fa-plus-square-o"></i>
-                        <json-tree v-if="showObj[index]" :data=value></json-tree>
-                        <i v-else class="fa fa-ellipsis-h"></i>
-                      </div>
-                      <div v-else>
-                        <template v-if="data.constructor === Array">
-                          {{value}}
-                        </template>
-                        <template v-else>
-                          <span class="key">{{key}}</span> : {{value}}
-                        </template>
-                      </div>
-                    </div>
-                    }
-                  </div>`,
+<template>
+    <div>
+        {
+        <div class="root_elem" v-for="(value, key, index) in filteredData">
+            <div v-if="typeof value === 'object'">
+                <span class="key">{{key}}: </span>
+                <i v-if="showObj[index]" @click="toggle(index)" class="fa fa-minus-square-o"></i>
+                <i v-else @click="toggle(index)" class="fa fa-plus-square-o"></i>
+                <json-tree v-if="showObj[index]" :data=value></json-tree>
+                <i v-else class="fa fa-ellipsis-h"></i>
+            </div>
+            <div v-else>
+                <template v-if="data.constructor === Array">
+                    {{value}}
+                </template>
+                <template v-else>
+                    <span class="key">{{key}}</span> : {{value}}
+                </template>
+            </div>
+        </div>
+        }
+    </div>
+</template>
+
+<script>
+    export default {
         props: {
             data: [Object, Array],
             filterKey: {
@@ -62,5 +65,11 @@ if (typeof Vue != 'undefined') {
                 this.showObj.splice(index, 1, this.showObj[index]);
             }
         }
-    });
-}
+    }
+</script>
+
+<style>
+    .root_elem {
+        margin-left: 25px;
+    }
+</style>
