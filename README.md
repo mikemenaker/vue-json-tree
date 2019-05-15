@@ -18,8 +18,6 @@ npm i v-json-tree --save
 
 ### With a CDN:
 ```html
-<!-- In <head> -->
-<meta rel="stylesheet" href="https://unpkg.com/v-json-tree/dist/v-json-tree.css">
 <!-- In <body>, after Vue import -->
 <script type="text/javascript" src="https://unpkg.com/v-json-tree/dist/vJsonTree.umd.js"></script>
 ```
