@@ -1,16 +1,8 @@
-import JsonTreeComp from './Components/JsonTree.vue'
+import Vue from 'vue'
+import App from './App.vue'
 
-const JsonTree = {
-    install(Vue, options = {}) {        
-        Vue.component('json-tree', JsonTreeComp)
-    },
-}
+Vue.config.productionTip = false
 
-if (typeof window !== 'undefined' && window.Vue) {
-    window.Vue.use(JsonTree);
-}
-
-window.JsonTree = JsonTree
-
-export { JsonTree }
-export default JsonTree
+new Vue({
+  render: h => h(App),
+}).$mount('#app')
