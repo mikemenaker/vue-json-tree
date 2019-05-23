@@ -48,18 +48,12 @@ components: {
 ```
 
 ## Props:
- - data <Object/Array>
-    Data to format into tree
- - filterKey <String>
-    String to filter data
- - fullMarkup <Boolean>
-    If full mark up is need (quotes and commas)
+ - data <Object/Array> - Data to format into tree
+ - filterKey <String> - String to filter data
+ - fullMarkup <Boolean> - If full mark up is need (quotes and commas)
 
 ## Slots:
- - hide
-    What should be used for the hide button
- - expand
-    What should be used for the expand button
- -more
-    What should be used for the elipsis when an object/array is hidden
+ - hide - What should be used for the hide button
+ - expand - What should be used for the expand button
+ - more - What should be used for the elipsis when an object/array is hidden
 

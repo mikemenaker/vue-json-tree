@@ -1,7 +1,17 @@
 {
   "name": "v-json-tree",
   "description": "Vue.js 3.0 JSON tree viewer",
-  "version": "3.0.2",
+  "version": "3.0.3",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mikemenaker/vue-json-tree.git"
+  },
+  "author": "Mike Menaker",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mikemenaker/vue-json-tree/issues"
+  },
+  "homepage": "https://github.com/mikemenaker/vue-json-tree#readme",
   "main": "./dist/vJsonTree.common.js",
   "files": [
     "dist/*",
