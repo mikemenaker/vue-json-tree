@@ -1,10 +1,8 @@
 # vue-json-tree
-Vue.js 3.0 JSON tree viewer
+Vue.js JSON tree viewer component
 
 [![GitHub release](https://img.shields.io/github/release/mikemenaker/vue-json-tree.svg)]() [![license](https://img.shields.io/github/license/mikemenaker/vue-json-tree.svg)]()
 
-# vue-json-tree
-Vue.js 3.0 JSON tree viewer
 
 ## Demo:
 
