@@ -1,7 +1,7 @@
 {
   "name": "v-json-tree",
   "description": "Vue.js 3.0 JSON tree viewer",
-  "version": "3.0.3",
+  "version": "3.0.4",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mikemenaker/vue-json-tree.git"
