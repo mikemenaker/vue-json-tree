@@ -3,7 +3,11 @@
     <div v-if="theData.constructor === Array">
       <span v-if="root"> [ </span>
       <div class="root_elem" v-for="(value, index) in theData" :key="index">
-        <div v-if="typeof value === 'object'">
+        <div v-if="value == null || value == undefined">
+          <span>null</span>
+          <span v-if="fullMarkup && index !== last">,</span>
+        </div>
+        <div v-else-if="typeof value === 'object'">
           <span v-if="value.constructor === Array"> [ </span>
           <span v-else> { </span>
 
@@ -38,9 +42,9 @@
           <slot name="more" v-else>...</slot>
         </div>
         <div v-else>
-          <span v-if="fullMarkup && typeof value === 'string'"
-            >"{{ value }}"</span
-          >
+          <span v-if="fullMarkup && typeof value === 'string'">
+            "{{ value }}"
+          </span>
           <span v-else>{{ value }}</span>
           <span v-if="fullMarkup && index !== last">,</span>
         </div>
@@ -50,10 +54,18 @@
     <div v-else>
       <span v-if="root"> { </span>
       <div class="root_elem" v-for="(value, key, index) in theData" :key="key">
-        <div v-if="typeof value === 'object'">
-          <span v-if="fullMarkup">"</span
-          ><span class="json-tree-key">{{ key }}</span
-          ><span v-if="fullMarkup">"</span>:
+        <div v-if="value == null || value == undefined">
+          <span v-if="fullMarkup">"</span>
+          <span class="json-tree-key">{{ key }}</span>
+          <span v-if="fullMarkup">"</span>
+          <span>: null</span>
+          <span v-if="fullMarkup && index !== last">,</span>
+        </div>
+        <div v-else-if="typeof value === 'object'">
+          <span v-if="fullMarkup">"</span>
+          <span class="json-tree-key">{{ key }}</span>
+          <span v-if="fullMarkup">"</span>
+          :
           <span v-if="value.constructor === Array"> [ </span>
           <span v-else> { </span>
 
@@ -87,12 +99,12 @@
           <slot name="more" v-else>...</slot>
         </div>
         <div v-else>
-          <span v-if="fullMarkup">"</span
-          ><span class="json-tree-key">{{ key }}</span
-          ><span v-if="fullMarkup">"</span> :
-          <span v-if="fullMarkup && typeof value === 'string'"
-            >"{{ value }}"</span
-          >
+          <span v-if="fullMarkup">"</span>
+          <span class="json-tree-key">{{ key }}</span>
+          <span v-if="fullMarkup">"</span> :
+          <span v-if="fullMarkup && typeof value === 'string'">
+            "{{ value }}"
+          </span>
           <span v-else>{{ value }}</span>
           <span v-if="fullMarkup && index !== last">,</span>
         </div>
@@ -103,7 +115,6 @@
 </template>
 
 <script>
-
 export default {
   name: "vJsonTree",
   props: {
@@ -154,7 +165,6 @@ export default {
     for (let i = 0, l = len; i < l; i++) {
       showObj.push(true);
     }
-
     return {
       showObj: showObj
     };
@@ -165,7 +175,7 @@ export default {
       this.showObj.splice(index, 1, this.showObj[index]);
     }
   }
-}
+};
 </script>
 
 <style>
